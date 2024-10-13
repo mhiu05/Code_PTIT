@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/New folder (2)/Code_PTIT/C++/Code PTIT/CPP0803_So_khac_nhau_trong_file",
+      "program": "c:/New folder (2)/Code_PTIT/C++/Code PTIT/CPP0803_So_khac_nhau_trong_file/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

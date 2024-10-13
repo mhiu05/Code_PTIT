@@ -16,11 +16,16 @@ int main()
 {
     faster();
     ifstream in;
-    in.open();
+    in.open("DATA.in");
     int tmp;
-    while (cin >> tmp)
+    map<int, int> mp;
+    while (in >> tmp)
     {
-        map[tmp]++;
+        mp[tmp]++;
+    }
+    for (auto it : mp)
+    {
+        cout << it.first << " " << it.second << endl;
     }
     in.close();
     return 0;
