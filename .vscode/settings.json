@@ -59,6 +59,8 @@
   "files.associations": {
     "*.embeddedhtml": "html",
     "iostream": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "ostream": "cpp",
+    "fstream": "cpp"
   }
 }
