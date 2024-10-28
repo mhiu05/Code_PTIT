@@ -52,11 +52,6 @@ int main()
         int ok = 1;
         while (ok)
         {
-            // for (int i = 1; i <= n; ++i)
-            // {
-            //     cout << a[i];
-            // }
-            // cout << " ";
             if (check1(a, n) && check2(a, n))
             {
                 for (int i = 1; i <= n; ++i)
