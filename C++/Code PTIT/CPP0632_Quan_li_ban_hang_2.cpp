@@ -125,6 +125,16 @@ public:
     }
 };
 
+int cmp(HoaDon x, HoaDon y)
+{
+    return
+}
+
+void sapxep(HoaDon dshd, int k)
+{
+    sort(dshd, dshd + k, cmp);
+}
+
 int main()
 {
     KhachHang dskh[25];
@@ -140,6 +150,8 @@ int main()
     cin >> K;
     for (i = 0; i < K; i++)
         cin >> dshd[i];
+
+    sapxep(dshd, K);
 
     for (i = 0; i < K; i++)
         cout << dshd[i];
