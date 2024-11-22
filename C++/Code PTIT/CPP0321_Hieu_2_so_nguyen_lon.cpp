@@ -16,38 +16,35 @@ typedef vector<pi> vii;
 const int modi = 1000000007;
 const ll modl = 1e18 + 7;
 
-string solve(string a, string b)
+string sub(string a, string b)
 {
-    int n = max(a.size(), b.size());
-    while (a.size() < n)
-    {
-        a = "0" + a;
-    }
-    while (b.size() < n)
-    {
-        b = "0" + b;
-    }
-    if (a < b)
-    {
+    if (a.size() < b.size())
         swap(a, b);
-    }
-    string res = "";
-    int remember = 0;
-    for (int i = n - 1; i >= 0; --i)
+
+    while (a.size() != b.size())
+        b = "0" + b;
+
+    if (a < b)
+        swap(a, b);
+
+    int carry = 0;
+
+    string ans = "";
+
+    for (int i = a.size() - 1; i >= 0; --i)
     {
-        int tmp = (a[i] - '0') - (b[i] - '0') - remember;
-        if (tmp < 0)
+        int x = (a[i] - '0') - (b[i] - '0') - carry;
+        if (x < 0)
         {
-            remember = 1;
-            tmp += 10;
+            carry = 1;
+            x += 10;
         }
         else
-        {
-            remember = 0;
-        }
-        res = char(tmp + '0') + res;
+            carry = 0;
+        ans = to_string(x) + ans;
     }
-    return res;
+
+    return ans;
 }
 
 int main()
@@ -62,7 +59,7 @@ int main()
     {
         string a, b;
         cin >> a >> b;
-        cout << solve(a, b) << endl;
+        cout << sub(a, b) << endl;
     }
     return 0;
 }

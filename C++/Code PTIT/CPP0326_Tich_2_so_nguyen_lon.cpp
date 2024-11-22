@@ -1,26 +1,26 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <bits/stdc++.h>
 using namespace std;
 string add(string a, string b)
 {
     if (a.length() < b.length())
         swap(a, b);
     while (a.length() != b.length())
-        b.insert(0, "0");
+        b = "0" + b;
     string c;
     int nho = 0;
     for (int i = a.length() - 1; i >= 0; i--)
     {
-        int x = a[i] + b[i] - 96 + nho;
+        int x = a[i] - '0' + b[i] - '0' + nho;
         nho = x / 10;
         int z = x % 10;
         c.push_back(z + '0');
     }
     if (nho > 0)
         c.push_back(nho + '0');
-    for (int i = 0; i < c.length() / 2; i++)
-        swap(c[i], c[c.length() - i - 1]);
+    reverse(c.begin(), c.end());
     return c;
 }
 
