@@ -1,82 +1,45 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-void faster()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-}
-
-using ll = long long;
-
-const int mod = 1e9 + 7;
-const int MAXN = 1e5 + 5;
 
 int main()
 {
-    faster();
     int t;
     cin >> t;
     while (t--)
     {
-        int n, m;
-        cin >> n >> m;
-
-        vector<vector<int>> a(n, vector<int>(m));
-
-        for (int i = 0; i < n; ++i)
+        int m, n;
+        cin >> m >> n;
+        int M[500][500];
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                cin >> M[i][j];
+        for (int i = 1; i < m; i++)
         {
-            for (int j = 0; j < m; ++j)
+            for (int j = 0; j < n; j++)
             {
-                cin >> a[i][j];
+                if (M[i][j] == 1)
+                    M[i][j] += M[i - 1][j];
             }
         }
-
-        vector<vector<int>> v(n, vector<int>(m));
-
-        for (int j = 0; j < m; ++j)
+        int maxx = 0;
+        for (int i = 0; i < m; i++)
         {
-            v[0][j] = a[0][j];
-        }
-        for (int i = 1; i < n; ++i)
-        {
-            for (int j = 0; j < m; ++j)
+            for (int j = 0; j < n; j++)
             {
-                if (a[i][j] != 0)
+                int min = M[i][j];
+                for (int l = j; l >= 0; l--)
                 {
-                    v[i][j] = v[i - 1][j] + a[i][j];
-                }
-                else
-                    v[i][j] = 0;
-            }
-        }
-
-        int max_s = INT_MIN;
-
-        for (int i = 0; i < n; ++i)
-        {
-            int cnt = 0, tmp = 1e9;
-            for (int j = 0; j < m; ++j)
-            {
-                if (v[i][j] != 0)
-                {
-                    ++cnt;
-                    tmp = min(tmp, v[i][j]);
-                    max_s = max(max_s, tmp * cnt);
-                }
-                else
-                {
-                    cnt = 0;
-                    tmp = 1e9;
+                    if (M[i][l] != 0)
+                    {
+                        if (min > M[i][l])
+                            min = M[i][l];
+                        maxx = max(maxx, min * (j - l + 1));
+                    }
+                    else
+                        break;
                 }
             }
         }
-        if (max_s != INT_MAX)
-            cout << max_s << endl;
-        else
-            cout << 0 << endl;
+        cout << maxx << endl;
     }
-
-    return 0;
 }
