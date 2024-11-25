@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-#define fi first
-#define sc second
 #define endl "\n"
+
 using namespace std;
 
 void faster()
