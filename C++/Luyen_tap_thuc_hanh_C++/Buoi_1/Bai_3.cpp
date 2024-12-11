@@ -1,56 +1,80 @@
-// Bài mua kem
 #include <bits/stdc++.h>
-#define fi first
-#define se second
-#define ms(a, n) memset(a, n, sizeof(a))
 #define endl "\n"
-#define PI 3.141592653589793238
+#define fi first
+#define sc second
+
 using namespace std;
 
 using ll = long long;
 
-typedef pair<ll, ll> pl;
-typedef vector<pl> vll;
-typedef pair<ll, int> pi;
-typedef vector<pi> vii;
+const int MAXN = 1e6 + 1;
+const int mod = 1e9 + 7;
 
-const ll modi = 1000000007;
-const int MAXN = 1e7 + 1;
-struct IceCream
+void faster()
 {
-    ll price;
-    ll quantity;
-};
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+}
 
-bool compare(IceCream a, IceCream b)
+int snt(int n)
 {
-    return a.price < b.price;
+    for (int i = 2; i <= sqrt(n); ++i)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+    return n > 1;
+}
+
+int prime[MAXN];
+void sieve()
+{
+    for (int i = 0; i <= 1000000; ++i)
+    {
+        prime[i] = 1;
+    }
+    prime[0] = prime[1] = 0;
+    for (int i = 2; i <= 1000; ++i)
+    {
+        for (int j = i * i; j <= 1000000; j += i)
+        {
+            prime[j] = 0;
+        }
+    }
+}
+
+int cmp(pair<int, int> a, pair<int, int> b)
+{
+    return a.first < b.first;
 }
 
 int main()
 {
-    ll N, M;
-    cin >> N >> M;
-
-    vector<IceCream> iceCreams(N);
-
-    for (int i = 0; i < N; i++)
+    faster();
+    int n, m;
+    cin >> n >> m;
+    ll ans = 0;
+    vector<pair<int, int>> v;
+    for (int i = 0; i < n; ++i)
     {
-        cin >> iceCreams[i].price >> iceCreams[i].quantity;
+        int x, y;
+        cin >> x >> y;
+        v.push_back({x, y});
     }
-
-    sort(iceCreams.begin(), iceCreams.end(), compare);
-
-    ll totalCost = 0;
-    ll totalBought = 0;
-
-    for (int i = 0; i < N && totalBought < M; i++)
+    sort(v.begin(), v.end(), cmp);
+    for (int i = 0; i < n; ++i)
     {
-        long long canBuy = min(iceCreams[i].quantity, M - totalBought);
-        totalCost += canBuy * iceCreams[i].price;
-        totalBought += canBuy;
+        if (m <= v[i].sc)
+        {
+            cout << ans + m * v[i].fi;
+            return 0;
+        }
+        else
+        {
+            ans += v[i].fi * v[i].sc;
+            m -= v[i].sc;
+        }
     }
-
-    cout << totalCost << endl;
     return 0;
 }
