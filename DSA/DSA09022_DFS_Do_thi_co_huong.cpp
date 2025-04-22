@@ -47,7 +47,6 @@ void init()
         int x, y;
         cin >> x >> y;
         a[x][y] = 1;
-        a[y][x] = 1;
     }
     memset(vs, 0, sizeof(vs));
 }

@@ -19,19 +19,6 @@ int a[1005][1005];
 int vs[1005];
 int n, m, u;
 
-void dfs(int u)
-{
-    cout << u << " ";
-    vs[u] = 1;
-    for (int i = 1; i <= n; ++i)
-    {
-        if (!vs[i] && a[u][i] == 1)
-        {
-            dfs(i);
-        }
-    }
-}
-
 void init()
 {
     for (int i = 1; i <= n; ++i)
@@ -47,9 +34,30 @@ void init()
         int x, y;
         cin >> x >> y;
         a[x][y] = 1;
-        a[y][x] = 1;
     }
     memset(vs, 0, sizeof(vs));
+}
+
+void bfs(int u)
+{
+    queue<int> q;
+    vs[u] = 1;
+    q.push(u);
+    cout << u << " ";
+    while (!q.empty())
+    {
+        int x = q.front();
+        q.pop();
+        for (int i = 1; i <= n; ++i)
+        {
+            if (!vs[i] && a[x][i] == 1)
+            {
+                q.push(i);
+                vs[i] = 1;
+                cout << i << " ";
+            }
+        }
+    }
 }
 
 int main()
@@ -60,7 +68,7 @@ int main()
     while (t--)
     {
         init();
-        dfs(u);
+        bfs(u);
         cout << endl;
     }
     return 0;
