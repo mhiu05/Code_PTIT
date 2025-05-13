@@ -1,1 +1,0 @@
-{"name":"Local: DSA03008_Sap_xep_cong_viec_1","url":"d:\\New folder\\Code_PTIT\\DSA\\DSA03008_Sap_xep_cong_viec_1.cpp","tests":[{"id":1744623852256,"input":"1\n\n6\n\n1  3  0  5  8  5\n\n2  4  6  7  9  9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\New folder\\Code_PTIT\\DSA\\DSA03008_Sap_xep_cong_viec_1.cpp","group":"local","local":true}

@@ -15,39 +15,89 @@ using ll = long long;
 const int mod = 1e9 + 7;
 const int MAXN = 100005;
 
-vector<int> adj[1005];
-vector<pair<int, int>> v, ans;
 int n, m;
 int vs[1005];
+vector<int> a[1005], b[1005];
+
+vector<pair<int, int>> v, ans;
+
+void dfs(int u, vector<int> adj[])
+{
+    vs[u] = 1;
+    for (int x : adj[u])
+    {
+        if (!vs[x])
+        {
+            dfs(x, adj);
+        }
+    }
+}
 
 void init()
 {
+    for (int i = 1; i <= n; ++i)
+    {
+        a[i].clear();
+        b[i].clear();
+    }
+    ans.clear();
+    v.clear();
+    memset(vs, 0, sizeof(vs));
     cin >> n >> m;
     for (int i = 1; i <= m; ++i)
     {
         int x, y;
         cin >> x >> y;
-        adj[x].push_back(y);
-        adj[y].push_back(x);
         v.push_back({x, y});
-    }
-}
-
-void dfs(int u)
-{
-    vs[u] = 1;
-    for (int i = 0; i < adj[u].size(); ++i)
-    {
-        int h = adj[u][i];
-        if (!vs[h])
-        {
-            dfs(h);
-        }
+        a[x].push_back(y);
+        a[y].push_back(x);
     }
 }
 
 void solve()
 {
+    int tplt_init = 0;
+    for (int i = 1; i <= n; ++i)
+    {
+        if (!vs[i])
+        {
+            dfs(i, a);
+            tplt_init++;
+        }
+    }
+
+    for (int i = 0; i < v.size(); ++i)
+    {
+        int tplt_later = 0;
+        for (int j = 1; j <= n; ++j)
+            b[j].clear();
+        for (int k = 0; k < v.size(); ++k)
+        {
+            if (k == i)
+                continue;
+            b[v[k].first].push_back(v[k].second);
+            b[v[k].second].push_back(v[k].first);
+        }
+        memset(vs, 0, sizeof(vs));
+        for (int j = 1; j <= n; ++j)
+        {
+            if (!vs[j])
+            {
+                dfs(j, b);
+                tplt_later++;
+            }
+        }
+        if (tplt_later > tplt_init)
+        {
+            ans.push_back({v[i].first, v[i].second});
+        }
+    }
+    sort(ans.begin(), ans.end());
+    for (int i = 0; i < ans.size(); ++i)
+    {
+        cout << ans[i].first << " " << ans[i].second << " ";
+    }
+    cout << endl;
 }
 
 int main()
@@ -58,6 +108,7 @@ int main()
     while (t--)
     {
         init();
+        solve();
     }
     return 0;
 }
