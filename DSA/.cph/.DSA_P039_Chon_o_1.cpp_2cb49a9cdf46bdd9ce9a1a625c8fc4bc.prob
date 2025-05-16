@@ -1,0 +1,1 @@
+{"name":"Local: DSA_P039_Chon_o_1","url":"d:\\New folder\\Code_PTIT\\DSA\\DSA_P039_Chon_o_1.cpp","tests":[{"id":1747377563453,"input":"2\n\n3\n\n3 1 2\n\n1 1 2\n\n1 4 2\n\n2\n\n1 2\n\n2 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\New folder\\Code_PTIT\\DSA\\DSA_P039_Chon_o_1.cpp","group":"local","local":true}

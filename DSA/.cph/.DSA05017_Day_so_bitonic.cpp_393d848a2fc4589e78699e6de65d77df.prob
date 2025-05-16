@@ -1,0 +1,1 @@
+{"name":"Local: DSA05017_Day_so_bitonic","url":"d:\\New folder\\Code_PTIT\\DSA\\DSA05017_Day_so_bitonic.cpp","tests":[{"id":1747398974850,"input":"2\n6\n80 60 30 40 20 10\n9\n1 15 51 45 33 100 12 18 9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\New folder\\Code_PTIT\\DSA\\DSA05017_Day_so_bitonic.cpp","group":"local","local":true}
