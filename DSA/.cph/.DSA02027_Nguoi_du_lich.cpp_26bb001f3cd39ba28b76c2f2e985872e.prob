@@ -1,1 +1,0 @@
-{"name":"Local: DSA02027_Nguoi_du_lich","url":"d:\\New folder\\Code_PTIT\\DSA\\DSA02027_Nguoi_du_lich.cpp","tests":[{"id":1748602203582,"input":"4\n\n0 20 35 10\n\n20 0 90 50\n\n35 90 0 12\n\n10 50 12 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\New folder\\Code_PTIT\\DSA\\DSA02027_Nguoi_du_lich.cpp","group":"local","local":true}
