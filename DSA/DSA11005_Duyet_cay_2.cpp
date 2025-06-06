@@ -1,47 +1,65 @@
-#include <bits/stdc++.h>
-#define endl "\n"
-
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-void faster()
+struct node
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-}
-
-using ll = long long;
-
-const int mod = 1e9 + 7;
-const int MAXN = 100005;
-
-Node *buildTree(int inorder[], int levelOrder[], int start, int end, unordered_map<int, int> indexInorderMap, int &indexInorder)
+    int data;
+    node *pLeft;
+    node *pRight;
+    node(int x)
+    {
+        this->data = x;
+        pLeft = pRight = NULL;
+    }
+};
+typedef node *tree;
+int find(int *M, int n, int k)
 {
-    if (start > end)
-        return NULL;
-
-    int data =
-        Node *root = new Node(data);
+    for (int i = 0; i < n; i++)
+        if (M[i] == k)
+            return i;
+    return -1;
 }
-
+void add_Node(tree &T, int *M, int *N, int n)
+{
+    T = new node(N[0]);
+    int k = find(M, n, N[0]);
+    int L[10001], R[10001], l = 0, r = 0;
+    for (int i = 1; i < n; i++)
+        if (find(M, n, N[i]) < k)
+            L[l++] = N[i];
+        else
+            R[r++] = N[i];
+    if (k > 0)
+        add_Node(T->pLeft, M, L, k);
+    if (n - k - 1 > 0)
+        add_Node(T->pRight, M + k + 1, R, n - k - 1);
+}
+void Load(tree T)
+{
+    if (T->pLeft != NULL)
+        Load(T->pLeft);
+    if (T->pRight != NULL)
+        Load(T->pRight);
+    cout << T->data << " ";
+}
 int main()
 {
-    faster();
     int t;
     cin >> t;
     while (t--)
     {
         int n;
         cin >> n;
-        int inorder[n + 1], levelOrder[n + 1];
-        for (int i = 1; i <= n; ++i)
-        {
-            cin >> inorder[i];
-        }
-        for (int i = 1; i <= n; ++i)
-        {
-            cin >> levelOrder[i];
-        }
+        int M[10001], N[10001];
+        for (int i = 0; i < n; i++)
+            cin >> M[i];
+        for (int i = 0; i < n; i++)
+            cin >> N[i];
+        tree T = NULL;
+        add_Node(T, M, N, n);
+        Load(T);
+        cout << endl;
     }
-    return 0;
 }
