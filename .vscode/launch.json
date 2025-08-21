@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "J01004_So_nguyen_to",
+      "request": "launch",
+      "mainClass": "J01004_So_nguyen_to",
+      "projectName": "Code_PTIT_5bc0f759"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
