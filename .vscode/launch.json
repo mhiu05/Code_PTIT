@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Hellofile_HELLO_FILE",
+      "request": "launch",
+      "mainClass": "Hellofile_HELLO_FILE",
+      "projectName": "Code_PTIT_e28c9ee7"
+    },
+    {
+      "type": "java",
+      "name": "B_Dia_chi_email",
+      "request": "launch",
+      "mainClass": "Practice_2.B_Dia_chi_email",
+      "projectName": "Code_PTIT_e28c9ee7"
+    },
+    {
+      "type": "java",
       "name": "J01004_So_nguyen_to",
       "request": "launch",
       "mainClass": "J01004_So_nguyen_to",
