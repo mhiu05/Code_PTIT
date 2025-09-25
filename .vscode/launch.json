@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "J07004_So_khac_nhau_trong_file_1",
+      "request": "launch",
+      "mainClass": "J07004_So_khac_nhau_trong_file_1",
+      "projectName": "Code_PTIT_84a4f2c7"
+    },
+    {
+      "type": "java",
+      "name": "J07007_Liet_ke_tu_khac_nhau",
+      "request": "launch",
+      "mainClass": "J07007_Liet_ke_tu_khac_nhau",
+      "projectName": "Code_PTIT_84a4f2c7"
+    },
+    {
+      "type": "java",
       "name": "Hellofile_HELLO_FILE",
       "request": "launch",
       "mainClass": "Hellofile_HELLO_FILE",
