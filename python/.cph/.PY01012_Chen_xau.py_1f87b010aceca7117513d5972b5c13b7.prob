@@ -1,0 +1,1 @@
+{"name":"Local: PY01012_Chen_xau","url":"d:\\Codeptit\\Code_PTIT\\python\\PY01012_Chen_xau.py","tests":[{"id":1760081318813,"input":"mon thcs2 hoc de\nngon ngu C.\n1","output":"ngon ngu C.mon thcs2 hoc de"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeptit\\Code_PTIT\\python\\PY01012_Chen_xau.py","group":"local","local":true}
