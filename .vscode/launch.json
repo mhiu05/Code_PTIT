@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "J04022_WORDSET",
+      "request": "launch",
+      "mainClass": "J04022_WORDSET",
+      "projectName": "Code_PTIT_2389fac7"
+    },
+    {
+      "type": "java",
       "name": "J07085_Tong_chu_so",
       "request": "launch",
       "mainClass": "J07085_TONG_CHU_SO.J07085_Tong_chu_so",
